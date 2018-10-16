@@ -21,7 +21,8 @@
         <activity android:name=".MainActivity2" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".Home" />
-        <activity android:name=".Notif"></activity>
+        <activity android:name=".Notif" />
+        <activity android:name=".browser"></activity>
     </application>
 
 </manifest>

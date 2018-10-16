@@ -1,16 +1,27 @@
 package com.example.administrator.goalee;
 
+import android.app.DatePickerDialog;
 import android.app.Notification;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class Home extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = "Home";
+    private Button mDisplayDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
+
 
     LinearLayout parent;
     Button b1;
@@ -20,13 +31,17 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button button = (Button)findViewById(R.id.button);
+
+
+     /*
             @Override
             public void onClick(View v) {
-                setdate();
-            }
-        });
+
+            }*/
+
+
+
 
         String[] btn_name = {"CUET", "BUET", "KUET", "CU", "SUST", "JU","MIST","DU","RUET","JNU"};
         parent = (LinearLayout) findViewById(R.id.l1_parentLayout);
@@ -47,16 +62,31 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             b1.setOnClickListener(Home.this);
 
 
+
         }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // display circular
+
+                Intent intent = new Intent(Home.this, browser.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
-   private void setdate(){
 
-        Intent intent = new Intent(Home.this,Notif.class);
+  private void setdate(){
+
+        Intent intent = new Intent(Home.this,browser.class);
         startActivity(intent);
    }
 
     @Override
+
     public void onClick(View v) {
         String str = v.getTag().toString();
         if (str.equals("0")) {
@@ -93,5 +123,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         startActivity(intent);}
 
 }
+
+
     }
 
